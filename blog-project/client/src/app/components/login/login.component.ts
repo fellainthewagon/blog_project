@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
 import { map } from 'rxjs/operators';
 
+/**
+ *         COMPONENT
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,6 +33,10 @@ export class LoginComponent implements OnInit {
       ]),
     });
   }
+
+  /**
+   *         SUBMIT FORM
+   */
 
   onSubmit() {
     if (this.loginForm.invalid) return;

@@ -12,7 +12,8 @@ export interface User {
   username: string;
   email: string;
   password: string;
-  passwordConfirm: string;
+  role: string;
+  // passwordConfirm: string;
 }
 
 @Injectable({
@@ -20,6 +21,9 @@ export interface User {
 })
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
+  /**
+   *         Login
+   */
 
   login(loginForm: LoginForm) {
     return this.http
@@ -34,6 +38,10 @@ export class AuthenticationService {
         })
       );
   }
+
+  /**
+   *         Register
+   */
 
   register(user: User) {
     return this.http.post<any>('/api/users/', user).pipe(map((user) => user));
