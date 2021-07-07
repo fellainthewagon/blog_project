@@ -1,1 +1,58 @@
-<p>register works!</p>
+<h1 style="text-align: center">Register Page</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <mat-form-field>
+      <input matInput placeholder="Full Name" formControlName="name" />
+      <mat-hint *ngIf="registerForm.controls.name.errors">
+        Full Name is required</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Your Username" formControlName="username" />
+      <mat-hint *ngIf="registerForm.controls.username.errors">
+        Username is required</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Your Email" formControlName="email" />
+      <mat-hint *ngIf="registerForm.controls.email.errors"
+        >Email is required</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Your Password"
+        formControlName="password"
+        type="password"
+      />
+      <mat-hint *ngIf="registerForm.controls.password.errors">
+        Password is required</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Confirm your password"
+        formControlName="passwordConfirm"
+        type="password"
+      />
+      <mat-hint *ngIf="registerForm.controls.passwordConfirm.errors">
+        Password Confirm is required</mat-hint
+      >
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="registerForm.invalid"
+      type="submit"
+    >
+      Register
+    </button>
+  </div>
+</form>
